@@ -81,6 +81,10 @@ Execution steps:
    4. "Use `Software Assisted` as author type? (yes/no)"
    5. "Review this metadata draft. Approve as-is? (yes/no)"
 
+   **URL rules for `mapping-references`:**
+   - **Bundle-local** references (artifacts that live in the same repository/bundle) SHOULD use relative `file://` URLs (e.g. `url: file://../catalogs/my-catalog.yaml`). The assembler needs a URL to fetch dependencies into the bundle — without one, the dependency is silently skipped and the bundle ships incomplete.
+   - **External** references (public frameworks, upstream catalogs hosted at a URL) SHOULD include `url` with `https://`.
+
    Generate the metadata YAML block:
 
    ```yaml

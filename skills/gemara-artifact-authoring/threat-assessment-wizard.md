@@ -36,6 +36,10 @@ Execution steps:
    2. Author name and identifier.
    3. Confirmation of the generated metadata before proceeding.
 
+   **URL rules for `mapping-references`:**
+   - **Bundle-local** references (artifacts that live in the same repository/bundle) SHOULD use relative `file://` URLs (e.g. `url: file://../catalogs/my-catalog.yaml`). The assembler needs a URL to fetch dependencies into the bundle — without one, the dependency is silently skipped and the bundle ships incomplete.
+   - **External** references (public frameworks, upstream catalogs hosted at a URL) SHOULD include `url` with `https://`.
+
    ```yaml
    metadata:
      id: {ID_PREFIX from user}
